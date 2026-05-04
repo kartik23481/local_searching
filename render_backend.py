@@ -43,7 +43,7 @@ def proxy_search(
                 "offset": offset,
                 "limit": limit
             },
-            timeout=30
+            timeout=400
         )
 
         if response.status_code == 404:
