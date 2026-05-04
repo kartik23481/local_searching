@@ -57,14 +57,9 @@ def proxy_search(
         raise HTTPException(status_code=504, detail="Scraper timeout")
 
     except Exception as e:
-        return {
-            "error": str(e),
-            "fallback": True,
-            "products": []
-        }
-    
+        return []
 
-@app.post("/api/render_track_user_behavior")
+@app.post("/api/track_user_behavior")
 def proxy_track_user_behavior(data: dict):
     if not SCRAPER_URL:
         raise HTTPException(status_code=500, detail="Scraper URL not set")
